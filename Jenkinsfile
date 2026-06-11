@@ -4,7 +4,8 @@ agent any
 stages {
     stage('Checkout Code') {
         steps {
-            git branch: 'master', url: 'https://github.com/venkatsaiakkiraju-cloud/devops-demo-.git'
+            git branch: 'master',
+            url: 'https://github.com/venkatsaiakkiraju-cloud/devops-demo-.git'
         }
     }
 
@@ -22,6 +23,5 @@ stages {
         }
     }
 }
-
 
 }
