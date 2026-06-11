@@ -19,7 +19,7 @@ stages {
         steps {
             sh 'docker stop devops-container || true'
             sh 'docker rm devops-container || true'
-            sh 'docker run -d -p 8080:8080 --name devops-container devops-demo'
+            sh 'docker run -d -p 8081:8080 --name devops-container devops-demo'
         }
     }
 }
