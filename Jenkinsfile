@@ -1,17 +1,26 @@
+```groovy
 pipeline {
     agent any
 
     stages {
 
-        stage('Build') {
+        stage('Checkout Code') {
             steps {
-                sh 'mvn -version'
+                git branch: 'master',
+                url: 'https://github.com/venkatsaiakkiraju-cloud/devops-demo-.git'
             }
         }
 
         stage('Docker Build') {
             steps {
                 sh 'docker build -t devops-demo .'
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                sh 'docker rm -f devops-container || true'
+                sh 'docker run -d -p 8080:8080 --name devops-container devops-demo'
             }
         }
     }
